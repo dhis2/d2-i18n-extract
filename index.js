@@ -38,11 +38,11 @@ try {
 
     if (!stat.isDirectory()) {
         console.error(dirPath, 'is not a directory.');
-        return;
+        process.exit(1);
     }
 } catch (e) {
     console.error(dirPath, 'does not exist.');
-    return;
+    process.exit(1);
 }
 
 
@@ -50,7 +50,7 @@ console.log('\n-- reading:', dirPath);
 var files = walk(dirPath);
 if (files.length === 0) {
     console.log(dirPath, 'has no strings to translate.');
-    return;
+    process.exit(1);
 }
 
 var Parser = require('i18next-scanner').Parser;
@@ -78,5 +78,6 @@ if (!fs.existsSync(args.output)) {
 console.log('-- writing:', Object.keys(en).length, 'language strings to', targetPath);
 i18nextToPot('en', JSON.stringify(en)).then(result => {
     fs.writeFileSync(targetPath, result);
-    console.log('-- complete\n')
+    console.log('-- complete\n');
+    process.exit(0);
 });
