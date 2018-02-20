@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
-var config = require('./config');
+
+var supportedExtensions = ['.js', '.jsx']
+
 
 module.exports.walk = function walk(dirPath, files = []) {
     var list = fs.readdirSync(dirPath);
@@ -15,7 +17,7 @@ module.exports.walk = function walk(dirPath, files = []) {
         } else if (stat.isFile() && !stat.isSymbolicLink()) {
             ext = path.extname(fileName);
 
-            if (config.exts.includes(ext)) {
+            if (supportedExtensions.includes(ext)) {
                 files.push(filePath);
             }
         }
