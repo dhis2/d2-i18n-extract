@@ -11,7 +11,7 @@ argsParser.addArgument(
     ['-p', '--path'],
     {
         dest: 'path',
-        defaultValue: 'en',
+        defaultValue: './src/',
         help: 'directory path to recurse and extract i18n.t translation strings'
     }
 );
