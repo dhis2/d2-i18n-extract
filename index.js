@@ -17,15 +17,6 @@ argsParser.addArgument(
 );
 
 argsParser.addArgument(
-    ['-n', '--namespace'],
-    {
-        dest: 'namespace',
-        required: true,
-        help: 'usually your frontend app name, no spaces allowed'
-    }
-);
-
-argsParser.addArgument(
     ['-o', '--output'],
     {
         dest: 'output',
