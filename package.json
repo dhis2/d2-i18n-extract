@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Extract i18n.t translation strings from dhis2 frontend apps",
   "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
