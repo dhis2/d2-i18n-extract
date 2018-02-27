@@ -2,12 +2,12 @@ Extract i18n.t translation strings from dhis2 frontend apps
 
 ## Example
 ```bash
-$> dhis2-i18n-extract -p ./src/ -o ./i18n/
+$> d2-i18n-extract -p ./src/ -o ./i18n/
 ```
 
 ## Usage
 ```
-dhis-i18n-extract [-h] [-v] [-p PATH] [-o OUTPUT]
+d2-i18n-extract [-h] [-v] [-p PATH] [-o OUTPUT]
 
 Optional arguments:
   -h, --help            Show this help message and exit.
