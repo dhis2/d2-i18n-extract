@@ -4,7 +4,7 @@ var ArgumentParser = require('argparse').ArgumentParser;
 var argsParser = new ArgumentParser({
     version: '1.0.0',
     addHelp: true,
-    description: 'Extract i18n.t translation strings from dhis2 frontend apps'
+    description: 'Extract i18n.t translation strings from DHIS2 frontend apps'
 })
 
 argsParser.addArgument(

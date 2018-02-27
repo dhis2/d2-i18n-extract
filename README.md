@@ -1,4 +1,4 @@
-Extract i18n.t translation strings from dhis2 frontend apps
+Extract i18n.t translation strings from DHIS2 frontend apps
 
 ## Example
 ```bash
