@@ -59,21 +59,50 @@ var en = {};
 
 Object.keys(parsed.en.translation).forEach(str => (en[str] = ''));
 
-var { i18nextToPot } = require('i18next-conv');
+var { i18nextToPot, gettextToI18next } = require('i18next-conv');
 var targetPath = path.join(args.output, 'en.pot');
 
+var checkExisting = true;
 if (!fs.existsSync(args.output)) {
-  fs.mkdirSync(args.output);
+  (checkExisting = false), fs.mkdirSync(args.output);
 }
 
-console.log(
-  '> writing:',
-  Object.keys(en).length,
-  'language strings to',
-  targetPath
-);
-i18nextToPot('en', JSON.stringify(en)).then(result => {
-  fs.writeFileSync(targetPath, result);
-  console.log('> complete\n');
-  process.exit(0);
-});
+if (checkExisting) {
+  // validate, diff translation keys b/w en.pot vs now
+  gettextToI18next('en', fs.readFileSync(targetPath, 'utf8')).then(json => {
+    var msgIds = Object.keys(en);
+    var newMsgIds = Object.keys(JSON.parse(json));
+
+    if (arrayEqual(newMsgIds, msgIds)) {
+      console.log('> no i18n updates found.');
+      console.log('> complete\n');
+      process.exit(0);
+    } else {
+      write(en);
+    }
+  });
+} else {
+  write(en);
+}
+
+function write(en) {
+  console.log(
+    '> writing:',
+    Object.keys(en).length,
+    'language strings to',
+    targetPath
+  );
+  i18nextToPot('en', JSON.stringify(en)).then(result => {
+    fs.writeFileSync(targetPath, result);
+    console.log('> complete\n');
+    process.exit(0);
+  });
+}
+
+// src .from component/array-equal
+function arrayEqual(arr1, arr2) {
+  var length = arr1.length;
+  if (length !== arr2.length) return false;
+  for (var i = 0; i < length; i++) if (arr1[i] !== arr2[i]) return false;
+  return true;
+}
