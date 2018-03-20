@@ -46,7 +46,11 @@ if (files.length === 0) {
 }
 
 var Parser = require('i18next-scanner').Parser;
-var parser = new Parser();
+var parser = new Parser({
+  keepRemoved: false,
+  keySeparator: false,
+  sort: true
+});
 
 console.log('> parsing:', files.length, 'files');
 for (var filePath of files) {
@@ -99,7 +103,7 @@ function write(en) {
   });
 }
 
-// src .from component/array-equal
+// src from component/array-equal
 function arrayEqual(arr1, arr2) {
   var length = arr1.length;
   if (length !== arr2.length) return false;
