@@ -97,7 +97,7 @@ function write(en) {
     targetPath
   );
   i18nextToPot('en', JSON.stringify(en)).then(result => {
-    fs.writeFileSync(targetPath, result);
+    fs.writeFileSync(targetPath, result + "\n");
     console.log('> complete\n');
     process.exit(0);
   });
