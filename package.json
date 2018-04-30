@@ -1,5 +1,5 @@
 {
-  "name": "d2-i18n-extract",
+  "name": "@dhis2/d2-i18n-extract",
   "version": "1.0.5",
   "description": "Extract i18n.t translation strings from DHIS2 frontend apps",
   "main": "index.js",
@@ -23,5 +23,8 @@
     "argparse": "^1.0.10",
     "i18next-conv": "^6.0.0",
     "i18next-scanner": "^2.4.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
