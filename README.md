@@ -3,7 +3,7 @@ Extract i18n.t translation strings from DHIS2 frontend apps
 ## Install
 
 ```bash
-$ yarn add @dhis2/d2-i18n-extract
+$> yarn add @dhis2/d2-i18n-extract
 ```
 
 ## Example
