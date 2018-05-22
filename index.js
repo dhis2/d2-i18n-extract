@@ -69,6 +69,7 @@ var targetPath = path.join(args.output, 'en.pot');
 var checkExisting = true;
 if (!fs.existsSync(args.output)) {
   (checkExisting = false), fs.mkdirSync(args.output);
+  fs.closeSync(fs.openSync(targetPath, 'w'));
 }
 
 if (checkExisting) {
