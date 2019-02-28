@@ -21,7 +21,7 @@
   "homepage": "https://github.com/dhis2/d2-i18n-extract#readme",
   "dependencies": {
     "argparse": "^1.0.10",
-    "i18next-conv": "^6.0.0",
+    "i18next-conv": "^8.0.1",
     "i18next-scanner": "^2.4.4"
   },
   "publishConfig": {
