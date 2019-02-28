@@ -2,6 +2,8 @@ Extract i18n.t translation strings from DHIS2 frontend apps
 
 ## Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/d2-i18n-extract.svg)](https://greenkeeper.io/)
+
 ```bash
 $> yarn add @dhis2/d2-i18n-extract
 ```
