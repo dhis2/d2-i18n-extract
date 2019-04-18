@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var supportedExtensions = ['.js', '.jsx'];
+var supportedExtensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 module.exports.walk = function walk(dirPath, files = []) {
   var list = fs.readdirSync(dirPath);
