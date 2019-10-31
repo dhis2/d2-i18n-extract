@@ -49,7 +49,10 @@ var Parser = require('i18next-scanner').Parser;
 var parser = new Parser({
   keepRemoved: false,
   keySeparator: false,
-  sort: true
+  sort: true,
+  resource: {
+    lineEnding: '\n'
+  }
 });
 
 console.log('> parsing:', files.length, 'files');
